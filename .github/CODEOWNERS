@@ -1,0 +1,11 @@
+# Code owners for ax-ros2-ref
+#
+# Every pull request against the default branch needs an approving review from at
+# least one owner listed here. This is enforced by the repository ruleset on
+# `main` (1 approving review + required code owner review).
+#
+# Note: a code owner's review only satisfies that requirement if they have write
+# access to this repository. GitHub ignores CODEOWNERS entries for users with
+# read-only access.
+
+*       @i-kolt @cVladu @MihaiDacila @Garjy @nihalsuri @cristian-gavril-olar
