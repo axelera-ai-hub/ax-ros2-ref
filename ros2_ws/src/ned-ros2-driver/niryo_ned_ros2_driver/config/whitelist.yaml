@@ -1,0 +1,14 @@
+/**:
+  ros__parameters:
+    topic_whitelist:
+      - /joint_states
+      - /niryo_robot_hardware_interface/hardware_status
+      - /niryo_robot/robot_state
+
+    service_whitelist:
+      - /niryo_robot/joints_interface/calibrate_motors
+      - /niryo_robot_tools_commander/.*
+
+    action_whitelist:
+      - /niryo_robot_follow_joint_trajectory_controller/follow_joint_trajectory
+      - /niryo_robot_tools_commander/action_server

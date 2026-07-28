@@ -1,0 +1,17 @@
+# Build artifacts — exclude from Docker build context for speed
+ros2_ws/build/
+ros2_ws/log/
+ros2_ws/install/
+
+# Staging directory — temporary, created and deleted by build_image.sh
+docker/staging/
+
+# Output frames — not needed in image
+results/
+
+# Git history
+.git/
+.gitignore
+
+# Documentation — not needed in image
+docs/

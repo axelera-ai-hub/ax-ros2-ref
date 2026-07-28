@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>metis_pose_inference</name>
+  <version>0.0.1</version>
+  <description>ROS2 Jazzy Python node that runs the Axelera voyager-sdk
+    yolov8npose-coco-onnx pose model on the BRIO hand camera, back-projects
+    wrist keypoints through a pinhole model onto a fixed Y-plane in the robot
+    world frame, and broadcasts dynamic TFs world -> {left_wrist, right_wrist}.</description>
+  <maintainer email="nihal.suri@axelera.ai">Nihal Suri</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_ros_py</depend>
+  <exec_depend>python3-opencv</exec_depend>
+
+  <!-- Used by launch/pose_inference.launch.py for rviz robot visualization -->
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>niryo_ned2_moveit_config</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

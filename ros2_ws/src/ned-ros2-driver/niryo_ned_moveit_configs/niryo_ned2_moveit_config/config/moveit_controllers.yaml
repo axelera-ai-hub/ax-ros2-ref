@@ -1,0 +1,34 @@
+# MoveIt uses this configuration for controller management
+
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+# Trajectory execution monitoring tolerances.
+# MoveIt aborts an in-flight trajectory if the controller takes longer than
+# (expected_duration * allowed_execution_duration_scaling) to finish. Default
+# is 1.2 (20% overage). On the Pi-side stack, rosbridge → ned-ros2-driver →
+# the NED2's internal ROS1 controller adds 5-10s of round-trip latency per
+# motion, AND the expected-duration estimate from MoveIt doesn't always
+# reapply velocity_scaling, so a 0.15-scaled motion can blow past the cap.
+# 10.0 gives us comfortable headroom even at ARM_VELOCITY=0.5+ where the
+# planned duration is short but rosbridge latency stays constant — so the
+# proportional deadline shrinks faster than the actual time-to-finish.
+# If motions still abort with code -4, set execution_duration_monitoring: false.
+allowed_execution_duration_scaling: 10.0
+allowed_goal_duration_margin: 2.0
+execution_duration_monitoring: true
+
+moveit_simple_controller_manager:
+  controller_names:
+    - niryo_robot_follow_joint_trajectory_controller
+
+  niryo_robot_follow_joint_trajectory_controller:
+    type: FollowJointTrajectory
+    joints:
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+      - joint_6
+    action_ns: follow_joint_trajectory
+    default: true

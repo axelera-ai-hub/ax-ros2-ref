@@ -1,0 +1,35 @@
+name: axros
+
+services:
+  inference:
+    image: axros:jazzy-latest
+    container_name: axros_inference
+
+    # Pass the Metis PCIe device through to the container.
+    # Adjust the device path to match your hardware (ls /dev/metis-*).
+    devices:
+      - /dev/metis-0:1:0:/dev/metis-0:1:0
+
+    # Mount compiled models (read-only) and the results output directory.
+    volumes:
+      - type: bind
+        source: ${HOME}/voyager-sdk/build
+        target: /models
+        read_only: true
+      - type: bind
+        source: ${HOME}/ax-ros2-ref/results
+        target: /results
+
+    # Model to run.
+    # Override at the command line: MODEL_NAME=yolov5m docker compose up
+    environment:
+      - MODEL_NAME=${MODEL_NAME:-yolov5s-v7-coco}
+
+    # Host networking lets you run ros2 topic echo from the host terminal.
+    network_mode: host
+
+    # Uncomment for deployment (auto-restart on failure):
+    # restart: unless-stopped
+
+    stdin_open: true
+    tty: true
