@@ -152,3 +152,14 @@ so every commit must be signed off (`git commit -s`).
 - [Voyager SDK](https://github.com/axelera-ai-hub/voyager-sdk) — runtime, driver, model zoo
 - [Axelera Community Forum](https://community.axelera.ai) — technical support and blog posts
 - [Axelera Customer Portal](https://support.axelera.ai) — firmware and technical guides
+
+---
+
+## Disclaimer
+
+The code in this repository is provided by Axelera AI solely on an “AS IS” basis and “with all
+faults”. No responsibility or liability is accepted or shall be imposed upon Axelera AI regarding
+the accuracy, merchantability, completeness or suitability of the code. Axelera AI shall not have
+any liability or responsibility for errors or omissions in, or any business decisions made by you
+in reliance on the code in this repository. Please refer to [SUPPORT.md](SUPPORT.md) on how to get
+support if you encounter any issues.
